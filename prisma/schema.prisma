@@ -12,3 +12,13 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+// TODO: Possible simple expansions
+// - Geolocation: Requires user permissions
+// - Browser
+// - Date of visit
+// - number of visits
+// - number of quotes witnessed
+model User {
+    id    Int     @id @default(autoincrement())
+  }

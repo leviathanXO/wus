@@ -7,17 +7,21 @@ import Header from "./components/Header";
 import Quote from "./components/Quote";
 import VisitorCounter from "./components/VisitorCounter";
 
+import { addUser } from "./lib/prisma";
+
 import KUHKERL from './assets/kuhkerl.png';
 
 export default function Home() {
+    addUser();
+  
   return (
     <div>
       {/* Header with company logo */}
       <Header />
 
-    {/* Main page elements */}
-    <main>
-      <Grid>
+      {/* Main page elements */}
+      <main>
+        <Grid>
           {/* Left column contains cowboy image*/}
           <GridItem>
             <Image
@@ -33,7 +37,7 @@ export default function Home() {
             <Quote />
           </GridItem>
 
-      </Grid>
+        </Grid>
       </main>
 
       {/* Footer includes Visitor Counter */}

@@ -2,11 +2,10 @@
 import { useEffect, useState } from "react";
 
 import Button from "./Button";
-import { fetchQuote } from "../utils";
+import { fetchQuote } from "../lib/utils";
 
 // Chucknorris.io API providing randomized quotes
 const URL = "https://api.chucknorris.io/jokes/random?category=dev"
-const DEFAULT_QUOTE = "Chuck Norris can divide by zero.";
 
 interface QuoteProps {
     displayButton?: boolean;
@@ -19,9 +18,7 @@ interface QuoteProps {
  * @returns {JSX.Element} The rendered component.
  */
 export default function Quote({ displayButton = true }: QuoteProps) {
-
-    // Set default placeholder to avoid empty state
-    const [quote, setQuote] = useState(DEFAULT_QUOTE);
+    const [quote, setQuote] = useState("");
 
     // Asynchronously fetch new quote on demand
     async function getQuote() {
@@ -38,6 +35,7 @@ export default function Quote({ displayButton = true }: QuoteProps) {
 
 
     // TODO: text styling
+    // TODO: Add typewriter effect
     return (
         <div>
             <p>{quote}</p>

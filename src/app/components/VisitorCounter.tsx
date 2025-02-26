@@ -1,20 +1,13 @@
-"use client"
+// import { useEffect, useState } from "react";
 
-import { useEffect, useState } from "react";
+import { countUsers } from "../lib/prisma";
 
-// TODO: integrate prisma db & replace placeholder functions
-export default function VisitorCounter() {
-  const [visitorCount, setVisitorCount] = useState(0);
-
-  useEffect(() => {
-    fetch("/api/visitor")
-      .then((response) => response.json())
-      .then((data) => setVisitorCount(data.visitorCount));
-  }, []);
+export default async function VisitorCounter() {
+  const userNumber = await countUsers();
 
   return (
     <div>
-      <p className="font-light">Visitor Count: {visitorCount}</p>
+      <p className="font-light">Visitor Count: {userNumber}</p>
     </div>
   );
 }
