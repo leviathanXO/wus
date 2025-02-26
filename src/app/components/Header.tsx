@@ -1,15 +1,15 @@
 import Image from 'next/image';
 import LOGO from '../assets/layout-logo-w-s-weis.svg';
 
+// TODO: align left
 export default function Header() {
-    // add visitor counter
     return (
         <header className="flex-wrap items-center justify-left">
         <Image
-          className="dark:invert"
+          className="invert dark:invert-0"
           src={LOGO}
           alt="W&S logo"
-          width={180}
+          width={100}
           height={38}
           priority
         />

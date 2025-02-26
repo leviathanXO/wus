@@ -1,35 +1,51 @@
 'use client'
 import { useEffect, useState } from "react";
 
-const url = "https://api.chucknorris.io/jokes/random?category=dev"
+import Button from "./Button";
+import { fetchQuote } from "../utils";
+
+// Chucknorris.io API providing randomized quotes
+const URL = "https://api.chucknorris.io/jokes/random?category=dev"
 const DEFAULT_QUOTE = "Chuck Norris can divide by zero.";
 
-export function fetchQuote() {
-    return fetch(url)
-        .then((response) => response.json())
-        .then((data) => data.value);
+interface QuoteProps {
+    displayButton?: boolean;
 }
 
-export default function Quote() {
+/**
+ * Displays a random Chuck Norris quote via Chucknorris.io.
+ * Also includes optional button to fetch a new quote on demand.
+ * 
+ * @returns {JSX.Element} The rendered component.
+ */
+export default function Quote({ displayButton = true }: QuoteProps) {
+
+    // Set default placeholder to avoid empty state
     const [quote, setQuote] = useState(DEFAULT_QUOTE);
 
+    // Asynchronously fetch new quote on demand
     async function getQuote() {
-        const quote = await fetchQuote();
-        setQuote(quote);
+        const fetchedQuote = await fetchQuote(URL);
+        if (fetchedQuote) {
+            setQuote(fetchedQuote);
+        }
     }
 
+    // Ensures new quote is fetched on initial render
     useEffect(() => {
         getQuote();
     }, []);
 
+
+    // TODO: text styling
     return (
         <div>
             <p>{quote}</p>
-            <button
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            onClick={getQuote}>
-                another one
-            </button>
+            {displayButton &&
+                <Button onClick={getQuote}>
+                    Another One
+                </Button>
+            }
         </div>
     )
 };
