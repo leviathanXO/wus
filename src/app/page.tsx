@@ -1,19 +1,20 @@
+import React from 'react';
 import Image from "next/image";
 
-import Footer from "./components/Footer";
-import Grid from "./components/Grid";
-import GridItem from "./components/GridItem";
+import Grid from "./components/ui/Grid";
+import GridItem from "./components/ui/GridItem";
+
 import Header from "./components/Header";
+import Footer from "./components/VisitorCounter";
 import Quote from "./components/Quote";
-import VisitorCounter from "./components/VisitorCounter";
 
 import { addUser } from "./lib/prisma";
 
 import KUHKERL from './assets/kuhkerl.png';
 
 export default function Home() {
-    addUser();
-  
+  addUser();
+
   return (
     <div>
       {/* Header with company logo */}
@@ -41,9 +42,7 @@ export default function Home() {
       </main>
 
       {/* Footer includes Visitor Counter */}
-      <Footer>
-        <VisitorCounter />
-      </Footer>
+      <Footer/>
 
     </div>
   );

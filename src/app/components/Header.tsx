@@ -1,10 +1,15 @@
+import React from 'react';
 import Image from 'next/image';
+
+import Container from './ui/Container';
+
 import LOGO from '../assets/layout-logo-w-s-weis.svg';
 
-// TODO: align left
 export default function Header() {
     return (
-        <header className="flex-wrap items-center justify-left">
+      <Container>
+        <header className="flex items-center justify-left">
+        <a href="https://www.wus.de/" target="_blank" rel="noopener noreferrer">
         <Image
           className="invert dark:invert-0"
           src={LOGO}
@@ -13,6 +18,8 @@ export default function Header() {
           height={38}
           priority
         />
+        </a>
       </header>
+      </Container>
     )
 };

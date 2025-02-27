@@ -1,13 +1,14 @@
-import { ReactNode } from 'react';
+import React from 'react';
 
-interface FooterProps {
-    children: ReactNode;
-}
+import Container from './ui/Container';
+import VisitorCounter from './VisitorCounter';
 
-export default function Footer({ children }: FooterProps) {
-    return (
-        <footer className="flex-wrap items-center justify-center">
-            {children}
+export default function Footer() {
+  return (
+    <Container>
+      <footer className="flex items-center justify-center">
+        <VisitorCounter />
       </footer>
-    )
+    </Container>
+  )
 };

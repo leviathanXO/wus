@@ -6,8 +6,8 @@ export default async function VisitorCounter() {
   const userNumber = await countUsers();
 
   return (
-    <div>
-      <p className="font-light">Visitor Count: {userNumber}</p>
-    </div>
+      <p className="text-center">
+        Chuck Norris has acknowledged your presence, visitor #{userNumber}
+      </p>
   );
 }

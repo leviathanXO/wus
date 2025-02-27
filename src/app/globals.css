@@ -42,8 +42,6 @@ body {
   color: var(--text);
   background: var(--background);
   font-family: "bebas-neue-pro", Arial, Helvetica, sans-serif;
-}
-
-p {
-  margin-bottom: 1.5rem;
+  width: auto;
+  height: 100%;
 }

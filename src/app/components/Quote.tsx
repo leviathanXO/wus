@@ -1,8 +1,13 @@
 'use client'
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
-import Button from "./Button";
+import Button from "./ui/Button";
+import Container from "./ui/Container";
+
 import { fetchQuote } from "../lib/utils";
+
+import REFRESH_ICON from '../assets/heroicons-arrow-path-mini.svg';
 
 // Chucknorris.io API providing randomized quotes
 const URL = "https://api.chucknorris.io/jokes/random?category=dev"
@@ -10,6 +15,8 @@ const URL = "https://api.chucknorris.io/jokes/random?category=dev"
 interface QuoteProps {
     displayButton?: boolean;
 }
+
+
 
 /**
  * Displays a random Chuck Norris quote via Chucknorris.io.
@@ -33,16 +40,27 @@ export default function Quote({ displayButton = true }: QuoteProps) {
         getQuote();
     }, []);
 
-
-    // TODO: text styling
-    // TODO: Add typewriter effect
+    // TODO: Add typewriter effect animation?
     return (
-        <div>
-            <p>{quote}</p>
+        <div className="justify-self-start">
+            <Container>
+                <p className="text-3xl mb-2 text-pretty">{quote}</p>
+            </Container>
+
             {displayButton &&
-                <Button onClick={getQuote}>
-                    Another One
-                </Button>
+                <Container>
+                    <Button onClick={getQuote}>
+                        Yeehaw
+                        {<Image
+                            className="dark:invert ml-1"
+                            aria-hidden
+                            src={REFRESH_ICON}
+                            alt="Refresh icon"
+                            width={20}
+                            height={20}
+                        />}
+                    </Button>
+                </Container>
             }
         </div>
     )

@@ -4,7 +4,6 @@ interface GridProps {
     children: ReactNode;
 }
 
-// TODO: adjust column size
 export default function Grid({ children }: GridProps) {
     return (
         <div className="
@@ -19,5 +18,3 @@ export default function Grid({ children }: GridProps) {
         </div>
     )
 }
-
-{/* <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start"> */}
