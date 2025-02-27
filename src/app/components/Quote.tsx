@@ -42,11 +42,11 @@ export default function Quote({ displayButton = true }: QuoteProps) {
     return (
         <>
             <div className="h-full content-end md:content-center">
-            <Container>
-                <p className="text-base md:text-3xl mb-2 text-pretty">
-                    {quote}
-                </p>
-            </Container>
+                <Container>
+                    <p className="text-base md:text-3xl mb-2 text-pretty">
+                        {quote}
+                    </p>
+                </Container>
             </div>
 
             {displayButton &&

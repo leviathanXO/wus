@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { PrismaClient } from '@prisma/client'
 import { withAccelerate } from '@prisma/extension-accelerate'
 
@@ -12,7 +13,6 @@ export async function addUser() {
         data: {},
     })
     // .then(() => disconnectDB())
-    console.log(user)
     // TODO: return true if added successfully
 }
 

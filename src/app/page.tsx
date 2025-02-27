@@ -4,7 +4,7 @@ import Grid from "./components/ui/Grid";
 import LeftColumn from "./components/ui/LeftColumn";
 import RightColumn from "./components/ui/RightColumn";
 
-import Footer from "./components/VisitorCounter";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Portrait from "./components/Portrait";
 import Quote from "./components/Quote";
@@ -37,4 +37,4 @@ export default function Home() {
 
     </div>
   );
-}
+};
