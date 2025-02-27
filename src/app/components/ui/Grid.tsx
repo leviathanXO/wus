@@ -6,15 +6,17 @@ interface GridProps {
 
 export default function Grid({ children }: GridProps) {
     return (
-        <div className="
-        grid 
-        grid-cols-2
-        items-center 
-        justify-items-center 
-        p-8 
-        gap-16 
+        <main>
+            <div className="
+        grid
+        grid-flow-col
+        grid-cols-3
+        p-8
+        gap-4
+        md:gap-16 
         sm:p-20">
-            {children}
-        </div>
+                {children}
+            </div>
+        </main>
     )
 }

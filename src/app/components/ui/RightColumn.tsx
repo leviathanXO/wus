@@ -1,16 +1,17 @@
 import { ReactNode } from 'react';
 
-interface GridItemProps {
+interface RightColumnProps {
     children: ReactNode;
 }
 
-export default function GridItem({ children }: GridItemProps) {
+export default function RightColumn({ children }: RightColumnProps) {
     return (
         <div className="
         flex 
         gap-4 
-        items-start
-        flex-col 
+        flex-col
+        col-span-2
+        justify-between
         ">
             {children}
         </div>

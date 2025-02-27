@@ -16,8 +16,6 @@ interface QuoteProps {
     displayButton?: boolean;
 }
 
-
-
 /**
  * Displays a random Chuck Norris quote via Chucknorris.io.
  * Also includes optional button to fetch a new quote on demand.
@@ -42,17 +40,21 @@ export default function Quote({ displayButton = true }: QuoteProps) {
 
     // TODO: Add typewriter effect animation?
     return (
-        <div className="justify-self-start">
+        <>
+            <div className="h-full content-end md:content-center">
             <Container>
-                <p className="text-3xl mb-2 text-pretty">{quote}</p>
+                <p className="text-base md:text-3xl mb-2 text-pretty">
+                    {quote}
+                </p>
             </Container>
+            </div>
 
             {displayButton &&
                 <Container>
                     <Button onClick={getQuote}>
-                        Yeehaw
+                        Yeehaw!
                         {<Image
-                            className="dark:invert ml-1"
+                            className="ml-1"
                             aria-hidden
                             src={REFRESH_ICON}
                             alt="Refresh icon"
@@ -62,6 +64,6 @@ export default function Quote({ displayButton = true }: QuoteProps) {
                     </Button>
                 </Container>
             }
-        </div>
+        </>
     )
 };

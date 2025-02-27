@@ -1,16 +1,15 @@
 import React from 'react';
-import Image from "next/image";
 
 import Grid from "./components/ui/Grid";
-import GridItem from "./components/ui/GridItem";
+import LeftColumn from "./components/ui/LeftColumn";
+import RightColumn from "./components/ui/RightColumn";
 
-import Header from "./components/Header";
 import Footer from "./components/VisitorCounter";
+import Header from "./components/Header";
+import Portrait from "./components/Portrait";
 import Quote from "./components/Quote";
 
 import { addUser } from "./lib/prisma";
-
-import KUHKERL from './assets/kuhkerl.png';
 
 export default function Home() {
   addUser();
@@ -21,28 +20,20 @@ export default function Home() {
       <Header />
 
       {/* Main page elements */}
-      <main>
         <Grid>
           {/* Left column contains cowboy image*/}
-          <GridItem>
-            <Image
-              src={KUHKERL}
-              alt="Es ist Mittwoch, meine Kerle"
-              width={350}
-              height={350}
-            />
-          </GridItem>
+          <LeftColumn>
+            <Portrait />
+          </LeftColumn>
 
           {/* Right column contains Chuck Norris quote*/}
-          <GridItem>
+          <RightColumn>
             <Quote />
-          </GridItem>
-
+          </RightColumn>
         </Grid>
-      </main>
 
       {/* Footer includes Visitor Counter */}
-      <Footer/>
+      <Footer />
 
     </div>
   );
